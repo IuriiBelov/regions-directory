@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("regions")
 public class RegionController {
 
     private final RegionService regionService;
