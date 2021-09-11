@@ -30,8 +30,6 @@ public interface RegionMapper {
     Region getRegionById(int id);
 
     @Insert("insert into region(name, short_name) values (#{name}, #{shortName})")
-    @SelectKey(statement = "select last_insert_id()", keyProperty = "id", before = false,
-            resultType = Integer.class)
     int createRegion(Region newRegion);
 
     @Update("update region set name=#{updatedRegion.name}, short_name=#{updatedRegion.shortName} " +
