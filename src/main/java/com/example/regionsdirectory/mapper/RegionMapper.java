@@ -17,7 +17,7 @@ public interface RegionMapper {
             @Result(property = "shortName", column = "short_name")
     })
     @Select("select * from region")
-    @Cacheable("allRegions")
+    //@Cacheable("allRegions")
     List<Region> getAllRegions();
 
     @Results({
@@ -32,11 +32,12 @@ public interface RegionMapper {
     @Insert("insert into region(name, short_name) values (#{name}, #{shortName})")
     @SelectKey(statement = "select last_insert_id()", keyProperty = "id", before = false,
             resultType = Integer.class)
-    Region createRegion(Region newRegion);
+    int createRegion(Region newRegion);
 
-    @Update("update region set name=#{name}, short_name=#{shortName} where id=#{id}")
-    Region updateRegionById(int id, Region updatedRegion);
+    @Update("update region set name=#{updatedRegion.name}, short_name=#{updatedRegion.shortName} " +
+            "where id=#{id}")
+    int updateRegionById(int id, Region updatedRegion);
 
     @Delete("delete from region where id=#{id}")
-    Region deleteRegionById(int id);
+    int deleteRegionById(int id);
 }

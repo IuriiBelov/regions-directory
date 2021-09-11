@@ -29,18 +29,18 @@ public class RegionController {
     }
 
     @PostMapping
-    public ResponseEntity<Region> createNewRegion(@RequestBody Region newRegion) {
+    public ResponseEntity<Integer> createNewRegion(@RequestBody Region newRegion) {
         return new ResponseEntity<>(regionService.createRegion(newRegion), HttpStatus.OK);
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<Region> updateRegionById(@PathVariable int id,
+    public ResponseEntity<Integer> updateRegionById(@PathVariable int id,
                                                   @RequestBody Region updatedRegion) {
         return new ResponseEntity<>(regionService.updateRegionById(id, updatedRegion), HttpStatus.OK);
     }
 
     @DeleteMapping("{id}")
-    public ResponseEntity<Region> deleteRegionById(@PathVariable int id) {
+    public ResponseEntity<Integer> deleteRegionById(@PathVariable int id) {
         return new ResponseEntity<>(regionService.deleteRegionById(id), HttpStatus.OK);
     }
 }
