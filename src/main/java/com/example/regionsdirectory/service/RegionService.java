@@ -10,9 +10,9 @@ public interface RegionService {
 
     Region getRegionById(int id);
 
-    int createRegion(Region newRegion);
+    void createRegion(Region newRegion);
 
-    int updateRegionById(int id, Region updatedRegion);
+    void updateRegionById(int id, Region updatedRegion);
 
-    int deleteRegionById(int id);
+    void deleteRegionById(int id);
 }

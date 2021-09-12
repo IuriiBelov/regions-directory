@@ -30,12 +30,12 @@ public interface RegionMapper {
     Region getRegionById(int id);
 
     @Insert("insert into region(name, short_name) values (#{name}, #{shortName})")
-    int createRegion(Region newRegion);
+    void createRegion(Region newRegion);
 
     @Update("update region set name=#{updatedRegion.name}, short_name=#{updatedRegion.shortName} " +
             "where id=#{id}")
-    int updateRegionById(int id, Region updatedRegion);
+    void updateRegionById(int id, Region updatedRegion);
 
     @Delete("delete from region where id=#{id}")
-    int deleteRegionById(int id);
+    void deleteRegionById(int id);
 }

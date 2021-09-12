@@ -27,17 +27,17 @@ public class RegionServiceImpl implements RegionService {
     }
 
     @Override
-    public int createRegion(Region newRegion) {
-        return regionMapper.createRegion(newRegion);
+    public void createRegion(Region newRegion) {
+        regionMapper.createRegion(newRegion);
     }
 
     @Override
-    public int updateRegionById(int id, Region updatedRegion) {
-        return regionMapper.updateRegionById(id, updatedRegion);
+    public void updateRegionById(int id, Region updatedRegion) {
+        regionMapper.updateRegionById(id, updatedRegion);
     }
 
     @Override
-    public int deleteRegionById(int id) {
-        return regionMapper.deleteRegionById(id);
+    public void deleteRegionById(int id) {
+        regionMapper.deleteRegionById(id);
     }
 }

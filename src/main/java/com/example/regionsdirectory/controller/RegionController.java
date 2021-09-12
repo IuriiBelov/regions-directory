@@ -29,18 +29,33 @@ public class RegionController {
     }
 
     @PostMapping
-    public ResponseEntity<Integer> createNewRegion(@RequestBody Region newRegion) {
-        return new ResponseEntity<>(regionService.createRegion(newRegion), HttpStatus.OK);
+    public ResponseEntity<?> createNewRegion(@RequestBody Region newRegion) {
+        try {
+            regionService.createRegion(newRegion);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<Integer> updateRegionById(@PathVariable int id,
+    public ResponseEntity<?> updateRegionById(@PathVariable int id,
                                                   @RequestBody Region updatedRegion) {
-        return new ResponseEntity<>(regionService.updateRegionById(id, updatedRegion), HttpStatus.OK);
+        try {
+            regionService.updateRegionById(id, updatedRegion);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @DeleteMapping("{id}")
-    public ResponseEntity<Integer> deleteRegionById(@PathVariable int id) {
-        return new ResponseEntity<>(regionService.deleteRegionById(id), HttpStatus.OK);
+    public ResponseEntity<?> deleteRegionById(@PathVariable int id) {
+        try {
+            regionService.deleteRegionById(id);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }
