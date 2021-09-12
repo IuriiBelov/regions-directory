@@ -17,7 +17,7 @@ public interface RegionMapper {
             @Result(property = "shortName", column = "short_name")
     })
     @Select("select * from region")
-    //@Cacheable("allRegions")
+    @Cacheable("allRegions")
     List<Region> getAllRegions();
 
     @Results({
